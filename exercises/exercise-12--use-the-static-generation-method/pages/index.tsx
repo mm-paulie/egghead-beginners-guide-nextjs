@@ -1,4 +1,5 @@
 // ✍️ import GetStaticProps from 'next'
+import type { GetStaticProps } from 'next'
 import { List, ListItem, Container, Heading } from '@chakra-ui/react'
 
 type Props = {
@@ -19,5 +20,11 @@ const Home = ({ genres }: Props) => {
 }
 
 // ✍️ export the getStaticProps method and return an array of genres as props
-
+export const getStaticProps: GetStaticProps<Props> = () => {
+  return {
+    props: {
+      genres: ['rock', 'country', 'pop', 'indie']
+    }
+  }
+}
 export default Home
